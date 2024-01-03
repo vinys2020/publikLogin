@@ -71,6 +71,7 @@
         // Devuelve true si la autenticación es exitosa, de lo contrario, devuelve false
         return username === "usuario" && password === "contrasena"; // Cambia esto según tu lógica real
       }
+
     </script>
     <style>
       .body {
@@ -104,6 +105,8 @@
         position: fixed; /* Cambiado de absolute a fixed */
         bottom: 0;
         margin-bottom: 0; /* Puedes ajustar este margen según tus necesidades */
+        transition: margin-bottom 0.5s ease-out; /* Agregamos una transición para un cambio suave */
+
       }
   
 
@@ -325,6 +328,20 @@
 
       
     </main>
+
+    <script>
+      // Detectar cambios en la altura de la ventana (puede indicar que el teclado se ha mostrado/ocultado)
+      window.addEventListener('resize', function() {
+        // Verificar si el ancho de la ventana ha cambiado (puede indicar que el teclado está activo)
+        if (window.innerWidth !== window.visualViewport.width) {
+          // El teclado está activo, ajustar el margen inferior del footer
+          document.querySelector('footer').style.marginBottom = window.innerHeight - window.visualViewport.height + 'px';
+        } else {
+          // El teclado está inactivo, restaurar el margen inferior del footer
+          document.querySelector('footer').style.marginBottom = '0';
+        }
+      });
+    </script>
 
     <footer class="bg-dark p-3">
       <div class="container text-center">
