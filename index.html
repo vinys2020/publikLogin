@@ -74,7 +74,7 @@
         }
     </script>
     <style>
-      body {
+      .body {
           margin-bottom: 0;
       }
 
@@ -93,16 +93,36 @@
         margin: 0 auto; /* Centrar el contenedor en el viewport */
         margin-bottom: 60px;
       }
+      footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+      .sticky-footer {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+    
+      main {
+        flex: 1;
+      }
+ 
 
     </style>
 
     
 </head>
-  <body class="bg-gradient-blue-green">
+
+
+  <body class="bg-gradient-blue-green sticky-footer">
 
     <script src="js/auth.js"></script>
     <script src="js/main.js"></script>
     <script src="js/login.js"></script>
+
+
 
  
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-black">
@@ -205,27 +225,31 @@
         </div>
 
         <footer class="bg-dark p-3">
-            <div class="container text-center">
-              <nav class="d-flex justify-content-evenly">
-                <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook fs-3"></i></a>
-                <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter fs-3"></i></a>
-                <a href="https://github.com" target="_blank"><i class="bi bi-github fs-3"></i></a>
-                <a href="https://youtube.com" target="_blank"><i class="bi bi-youtube fs-3"></i></a>
-                <a href="https://www.instagram.com/publik.tuc/" target="_blank"><i class="bi bi-instagram fs-3"></i></a>
-                <a href="https://m.me/user" target="_blank"><i class="bi bi-messenger fs-3"></i></a>
-                <a href="https://api.whatsapp.com/send?phone=5215512345678" target="_blank"><i class="bi bi-whatsapp fs-3"></i></a>
-              </nav>
-              <div class="row">
-                <div class="col-12 col-md-12 col-lg-12 d-flex justify-content-center mt-3">
-                  <small class="text-white">
-                    &copy; 2023 Hecho por Facundo E. Lezcano, página web con HTML, CSS, JS y Bootstrap 5 para agencia de marketing
-                    <a href="https://www.instagram.com/facundolezcano_/" target="_blank" class="text-info">Cuenta personal</a>.
-                  </small>
-                </div>
+          <div class="container text-center">
+            <nav class="d-flex justify-content-evenly">
+              <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook fs-3"></i></a>
+              <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter fs-3"></i></a>
+              <a href="https://github.com" target="_blank"><i class="bi bi-github fs-3"></i></a>
+              <a href="https://youtube.com" target="_blank"><i class="bi bi-youtube fs-3"></i></a>
+              <a href="https://www.instagram.com/publik.tuc/" target="_blank"><i class="bi bi-instagram fs-3"></i></a>
+              <a href="https://m.me/user" target="_blank"><i class="bi bi-messenger fs-3"></i></a>
+              <a href="https://api.whatsapp.com/send?phone=5215512345678" target="_blank"><i class="bi bi-whatsapp fs-3"></i></a>
+            </nav>
+            <div class="row">
+              <div class="col-12 col-md-12 col-lg-12 d-flex justify-content-center mt-3">
+                <small class="text-white">
+                  &copy; 2023 Hecho por Facundo E. Lezcano, página web con HTML, CSS, JS y Bootstrap 5 para agencia de marketing
+                  <a href="https://www.instagram.com/facundolezcano_/" target="_blank" class="text-info">Cuenta personal</a>.
+                </small>
               </div>
             </div>
-          </footer>
+          </div>
+        </footer>
+
+        
+
       </main>
+
 
       
     </body>
