@@ -105,8 +105,12 @@
         position: fixed; /* Cambiado de absolute a fixed */
         bottom: 0;
         margin-bottom: 0; /* Puedes ajustar este margen según tus necesidades */
-        transition: margin-bottom 0.5s ease-out; /* Agregamos una transición para un cambio suave */
+        transition: visibility 0.5s ease-out; /* Agregamos una transición para un cambio suave */
 
+      }
+
+      .hide-footer {
+      visibility: hidden;
       }
   
 
@@ -334,11 +338,11 @@
       window.addEventListener('resize', function() {
         // Verificar si el ancho de la ventana ha cambiado (puede indicar que el teclado está activo)
         if (window.innerWidth !== window.visualViewport.width) {
-          // El teclado está activo, ajustar el margen inferior del footer
-          document.querySelector('footer').style.marginBottom = window.innerHeight - window.visualViewport.height + 'px';
+          // El teclado está activo, ocultar el footer
+          document.querySelector('footer').classList.add('hide-footer');
         } else {
-          // El teclado está inactivo, restaurar el margen inferior del footer
-          document.querySelector('footer').style.marginBottom = '0';
+          // El teclado está inactivo, mostrar el footer
+          document.querySelector('footer').classList.remove('hide-footer');
         }
       });
     </script>
