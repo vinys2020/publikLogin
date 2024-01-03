@@ -24,68 +24,74 @@
     <link rel="icon" href="img/zyro-image__4_-removebg-preview.png" />
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-  
-            // Verificar si ya hay una sesión activa (por ejemplo, si el usuario ya ha iniciado sesión)
-            // Si es así, redirigir directamente a la página de inicio
-            // Puedes personalizar esto según tus necesidades
-  
-            // Supongamos que tienes una función isAuthenticated que verifica la autenticación
-            if (isAuthenticated()) {
-                window.location.href = 'index.html';
-            }
-  
-            // Agregar evento de envío del formulario
-            const loginForm = document.getElementById('loginForm'); // Reemplaza 'loginForm' con el ID real de tu formulario
-  
-            if (loginForm) {
-                loginForm.addEventListener('submit', function(event) {
-                    event.preventDefault(); // Evitar la recarga de la página por defecto del formulario
-  
-                    // Obtener los valores del formulario
-                    const username = document.getElementById('username').value; // Reemplaza 'username' con el ID real de tu campo de nombre de usuario
-                    const password = document.getElementById('password').value; // Reemplaza 'password' con el ID real de tu campo de contraseña
-  
-                    // Realizar la lógica de autenticación aquí (puedes usar AJAX, fetch, etc.)
-                    // Supongamos que tienes una función authenticate que verifica la autenticación
-                    if (authenticate(username, password)) {
-                        // Autenticación exitosa, redirigir al usuario a la página de inicio
-                        window.location.href = 'pagina.html';
-                    } else {
-                        // Autenticación fallida, puedes mostrar un mensaje de error o realizar otras acciones
-                        console.log('Autenticación fallida');
-                    }
-                });
-            }
-        });
-  
-        // Función de ejemplo para verificar la autenticación (reemplázala con tu lógica real)
-        function isAuthenticated() {
-            // Aquí deberías verificar si el usuario ya ha iniciado sesión
-            // Devuelve true si está autenticado, de lo contrario, devuelve false
-            return false; // Cambia esto según tu lógica real
+      document.addEventListener("DOMContentLoaded", function () {
+        // Verificar si ya hay una sesión activa (por ejemplo, si el usuario ya ha iniciado sesión)
+        // Si es así, redirigir directamente a la página de inicio
+        // Puedes personalizar esto según tus necesidades
+
+        // Supongamos que tienes una función isAuthenticated que verifica la autenticación
+        if (isAuthenticated()) {
+          window.location.href = "index.html";
         }
-  
-        // Función de ejemplo para autenticar (reemplázala con tu lógica real)
-        function authenticate(username, password) {
-            // Aquí deberías realizar la autenticación utilizando los valores del nombre de usuario y la contraseña
-            // Devuelve true si la autenticación es exitosa, de lo contrario, devuelve false
-            return (username === 'usuario' && password === 'contrasena'); // Cambia esto según tu lógica real
+
+        // Agregar evento de envío del formulario
+        const loginForm = document.getElementById("loginForm"); // Reemplaza 'loginForm' con el ID real de tu formulario
+
+        if (loginForm) {
+          loginForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // Evitar la recarga de la página por defecto del formulario
+
+            // Obtener los valores del formulario
+            const username = document.getElementById("username").value; // Reemplaza 'username' con el ID real de tu campo de nombre de usuario
+            const password = document.getElementById("password").value; // Reemplaza 'password' con el ID real de tu campo de contraseña
+
+            // Realizar la lógica de autenticación aquí (puedes usar AJAX, fetch, etc.)
+            // Supongamos que tienes una función authenticate que verifica la autenticación
+            if (authenticate(username, password)) {
+              // Autenticación exitosa, redirigir al usuario a la página de inicio
+              window.location.href = "pagina.html";
+            } else {
+              // Autenticación fallida, puedes mostrar un mensaje de error o realizar otras acciones
+              console.log("Autenticación fallida");
+            }
+          });
         }
+      });
+
+      // Función de ejemplo para verificar la autenticación (reemplázala con tu lógica real)
+      function isAuthenticated() {
+        // Aquí deberías verificar si el usuario ya ha iniciado sesión
+        // Devuelve true si está autenticado, de lo contrario, devuelve false
+        return false; // Cambia esto según tu lógica real
+      }
+
+      // Función de ejemplo para autenticar (reemplázala con tu lógica real)
+      function authenticate(username, password) {
+        // Aquí deberías realizar la autenticación utilizando los valores del nombre de usuario y la contraseña
+        // Devuelve true si la autenticación es exitosa, de lo contrario, devuelve false
+        return username === "usuario" && password === "contrasena"; // Cambia esto según tu lógica real
+      }
     </script>
     <style>
       .body {
-          margin-bottom: 0;
+        margin-bottom: 0;
+        overflow: auto;
+        
       }
 
+      .container {
+        position: relative;
+        padding: 20px;
+      }
 
-        .container {
-            position: relative;
-            padding: 20px;
-        }
-
-        .login-container {
-        background: linear-gradient(to bottom right, #d853e4, #7c257c, #232123, #e107e1);
+      .login-container {
+        background: linear-gradient(
+          to bottom right,
+          #d853e4,
+          #7c257c,
+          #232123,
+          #e107e1
+        );
         border-radius: 10px;
         position: relative;
         padding: 20px;
@@ -94,163 +100,276 @@
         margin-bottom: 60px;
       }
       footer {
-        position: fixed;
-        bottom: 0;
         width: 100%;
+        position: fixed; /* Cambiado de absolute a fixed */
+        bottom: 0;
+        margin-bottom: 0; /* Puedes ajustar este margen según tus necesidades */
       }
+  
+
 
       .sticky-footer {
-        display: flex;
         flex-direction: column;
         min-height: 100vh;
+        position: relative;
       }
-    
-      main {
-        flex: 1;
-      }
- 
 
+      .main {
+        position: relative;
+        z-index: 1;
+      }
+
+      .article {
+        position: relative;
+        padding: 20px;
+      }
     </style>
-
-    
-</head>
-
+  </head>
 
   <body class="bg-gradient-blue-green sticky-footer">
-
     <script src="js/auth.js"></script>
     <script src="js/main.js"></script>
     <script src="js/login.js"></script>
 
-
-
- 
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-black">
-        <div class="container">
-          <a class="navbar-brand" href="#" data-auth="true">
-            <img src="img/zyro-image.png" alt="Publica isologotipo" />
-          </a>
-          <button
-            class="navbar-toggler border-0"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ms-lg-auto">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html" data-auth="true">Inicio</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-auth="true">Proyectos</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="sitios.html#" style="color: black;">Últimos Proyectos</a></li>
-                  <li><a class="dropdown-item" href="sitios.html#single-page" style="color: black;"><i>¡Descuentos!</i></a></li>
-                  <li><a class="dropdown-item" href="sitios.html#single-pages" style="color: black;"><i>Preguntas Frecuentes</i></a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="clientes.html" data-auth="true">Clientes</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-auth="true">Comencemos</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="comencemos.html" style="color: black;">Comenza Ahora</a></li>
-                  <li><a class="dropdown-item" href="comencemos.html#pasos" style="color: black;"><i>Procedimiento</i></a></li>
-                  <li><a class="dropdown-item" href="comencemos.html#multi-page" style="color: black;"><i>Paquetes de valor</i></a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Contacto</a>
-              </li>
-            </ul>
-          </div>
+      <div class="container">
+        <a class="navbar-brand" href="#" data-auth="true">
+          <img src="img/zyro-image.png" alt="Publica isologotipo" />
+        </a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-lg-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="index.html"
+                data-auth="true"
+                >Inicio</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                data-auth="true"
+                >Proyectos</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="sitios.html#"
+                    style="color: black"
+                    >Últimos Proyectos</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="sitios.html#single-page"
+                    style="color: black"
+                    ><i>¡Descuentos!</i></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="sitios.html#single-pages"
+                    style="color: black"
+                    ><i>Preguntas Frecuentes</i></a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="clientes.html" data-auth="true"
+                >Clientes</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                data-auth="true"
+                >Comencemos</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="comencemos.html"
+                    style="color: black"
+                    >Comenza Ahora</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="comencemos.html#pasos"
+                    style="color: black"
+                    ><i>Procedimiento</i></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="comencemos.html#multi-page"
+                    style="color: black"
+                    ><i>Paquetes de valor</i></a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                >Contacto</a
+              >
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
 
-
-      <main class="bg-gradient-blue-green pt-5 pb">
-        <div class="container">
-          <section class="row text-white mb-0">
-
-    
-
-
-                  <!-- Formulario de inicio de sesión -->
-                  <div class="col-12 col-lg-6 mb-0" >
-                    <div class="login-container"><h1 class="text-white">Iniciar sesión</h1>
-                      <form id="loginForm">
-                          <div class="mb-3">
-                              <label for="username" class="form-label text-white">Nombre de usuario:</label>
-                              <input type="text" class="form-control" id="username" required>
-                          </div>
-                          <div class="mb-3">
-                              <label for="password" class="form-label text-white">Contraseña:</label>
-                              <input type="password" class="form-control" id="password" required>
-                          </div>
-                          <button type="submit" class="btn btn-dark col-6 mx-auto d-block mt-4">Iniciar sesión</button>
-                          <button type="button" class="btn btn-link text-right   mt-3">¿No tienes cuenta? Reguistrate</button>
-                          <button type="button" class="btn btn-link  mt-3">¿Has olvidado la contraseña?</button>
-                        </form>
-                      </div>
-                      
-                  </div>
-
-            <article class="col-12 col-lg-6 mb-5 d-flex justify-content-center">
-
-                
-              <div class="container  text-right">
-                <h1>               Todos los servicios de Publik a tu disposición.
-                                    ¡Regístrate ahora de forma gratuita!
-                  </h1>
-                   
-                <p>Explora nuestros servicios especializados y lleva tu presencia en línea al siguiente nivel. En Publik, estamos aquí para potenciar tu marca y hacer que destaque en el mundo digital.</p>
-                <img class="img-fluid mx-auto d-block" style="border-radius: 10px; max-width: 70%;" src="img/Eres_lo_que_publicas.-removebg-preview.png" alt="¿Necesitas un increíble sitio web?">
-            </div>
-            
-
-            </article>
-            
-
-          </section>
-          
-
-
-          <!-- Otras secciones ... -->
-        </div>
-
-        <footer class="bg-dark p-3">
-          <div class="container text-center">
-            <nav class="d-flex justify-content-evenly">
-              <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook fs-3"></i></a>
-              <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter fs-3"></i></a>
-              <a href="https://github.com" target="_blank"><i class="bi bi-github fs-3"></i></a>
-              <a href="https://youtube.com" target="_blank"><i class="bi bi-youtube fs-3"></i></a>
-              <a href="https://www.instagram.com/publik.tuc/" target="_blank"><i class="bi bi-instagram fs-3"></i></a>
-              <a href="https://m.me/user" target="_blank"><i class="bi bi-messenger fs-3"></i></a>
-              <a href="https://api.whatsapp.com/send?phone=5215512345678" target="_blank"><i class="bi bi-whatsapp fs-3"></i></a>
-            </nav>
-            <div class="row">
-              <div class="col-12 col-md-12 col-lg-12 d-flex justify-content-center mt-3">
-                <small class="text-white">
-                  &copy; 2023 Hecho por Facundo E. Lezcano, página web con HTML, CSS, JS y Bootstrap 5 para agencia de marketing
-                  <a href="https://www.instagram.com/facundolezcano_/" target="_blank" class="text-info">Cuenta personal</a>.
-                </small>
-              </div>
+    <main class="bg-gradient-blue-green justify-content-center" style="padding-top: 100px;padding-bottom: 150px;">
+      <div class="container">
+        <section class="row text-white mb-0">
+          <!-- Formulario de inicio de sesión -->
+          <div class="col-12 col-lg-6 mb-0">
+            <div class="login-container">
+              <h1 class="text-white">Iniciar sesión</h1>
+              <form id="loginForm">
+                <div class="mb-3">
+                  <label for="username" class="form-label text-white"
+                    >Nombre de usuario:</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label text-white"
+                    >Contraseña:</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-dark col-6 mx-auto d-block mt-4"
+                >
+                  Iniciar sesión
+                </button>
+                <button type="button" class="btn btn-link text-right mt-3">
+                  ¿No tienes cuenta? Reguistrate
+                </button>
+                <button type="button" class="btn btn-link mt-3">
+                  ¿Has olvidado la contraseña?
+                </button>
+              </form>
             </div>
           </div>
-        </footer>
 
-        
+          <article class="col-12 col-lg-6  d-flex justify-content-center position-relative">
+            <div class="container text-right">
+              <h1>
+                Todos los servicios de Publik a tu disposición. <b>¡Regístrate
+                ahora de forma gratuita!</b> <i class="bi bi-patch-check-fill"></i>
+              </h1>
 
-      </main>
-
+              <p style="margin-top: 20px;">
+                Explora nuestros servicios especializados y lleva tu presencia
+                en línea al siguiente nivel. En Publik, estamos aquí para
+                potenciar tu marca y hacer que destaque en el mundo digital.
+              </p>
+              <img
+                class="img-fluid mx-auto d-block"
+                style="border-radius: 10px; max-width: 80%"
+                src="img/Eres_lo_que_publicas.-removebg-preview.png"
+                alt="¿Necesitas un increíble sitio web?"
+              />
+            </div>
+          </article>
+        </section>
+      </div>
+      <article class="col-12 col-lg-6  d-flex justify-content-center position-relative">
+        <br>
+        </article>
 
       
-    </body>
+    </main>
+
+    <footer class="bg-dark p-3">
+      <div class="container text-center">
+        <nav class="d-flex justify-content-evenly">
+          <a href="https://facebook.com" target="_blank"
+            ><i class="bi bi-facebook fs-3"></i
+          ></a>
+          <a href="https://twitter.com" target="_blank"
+            ><i class="bi bi-twitter fs-3"></i
+          </a>
+          <a href="https://github.com" target="_blank"
+            ><i class="bi bi-github fs-3"></i
+          ></a>
+          <a href="https://youtube.com" target="_blank"
+            ><i class="bi bi-youtube fs-3"></i
+          ></a>
+          <a href="https://www.instagram.com/publik.tuc/" target="_blank"
+            ><i class="bi bi-instagram fs-3"></i
+          ></a>
+          <a href="https://m.me/user" target="_blank"
+            ><i class="bi bi-messenger fs-3"></i
+          ></a>
+          <a
+            href="https://api.whatsapp.com/send?phone=5215512345678"
+            target="_blank"
+            ><i class="bi bi-whatsapp fs-3"></i
+          ></a>
+        </nav>
+        <div class="row">
+          <div
+            class="col-12 col-md-12 col-lg-12 d-flex justify-content-center mt-3"
+          >
+            <small class="text-white">
+              &copy; 2023 Hecho por Facundo E. Lezcano, página web con HTML,
+              CSS, JS y Bootstrap 5 para agencia de marketing
+              <a
+                href="https://www.instagram.com/facundolezcano_/"
+                target="_blank"
+                class="text-info"
+                >Cuenta personal</a
+              >.
+            </small>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
