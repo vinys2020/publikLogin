@@ -88,10 +88,10 @@
       .login-container {
         background: linear-gradient(
           to bottom right,
-          #d853e4,
-          #7c257c,
-          #232123,
-          #e107e1
+          #b84cc2,
+          #912891,
+          #292429e5,
+          #630e63
         );
         border-radius: 10px;
         position: relative;
@@ -132,9 +132,9 @@
   </head>
 
   <body class="bg-gradient-blue-green sticky-footer">
-    <script src="js/auth.js"></script>
     <script src="js/main.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/auth.js"></script>
 
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-black">
       <div class="container">
@@ -259,11 +259,11 @@
     <main class="bg-gradient-blue-green justify-content-center" style="padding-top: 100px;padding-bottom: 150px;">
       <div class="container">
         <section class="row text-white mb-0">
-          <!-- Formulario de inicio de sesión -->
           <div class="col-12 col-lg-6 mb-0">
             <div class="login-container">
               <h1 class="text-white">Iniciar sesión</h1>
               <form id="loginForm">
+                
                 <div class="mb-3">
                   <label for="username" class="form-label text-white"
                     >Nombre de usuario:</label
@@ -292,8 +292,8 @@
                 >
                   Iniciar sesión
                 </button>
-                <button type="button" class="btn btn-link text-right mt-3">
-                  ¿No tienes cuenta? Reguistrate
+                <button type="button" class="btn btn-link text-right mt-3" onclick="window.location.href='registro.html'">
+                  ¿No tienes cuenta? Regístrate
                 </button>
                 <button type="button" class="btn btn-link mt-3">
                   ¿Has olvidado la contraseña?
