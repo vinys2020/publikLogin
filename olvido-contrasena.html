@@ -28,33 +28,42 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-          const usernameInput = document.getElementById("username");
-          const passwordInput = document.getElementById("password");
-          const footer = document.querySelector("footer");
-  
-          // Función para manejar el evento de entrada en el campo de texto
-          function handleInput() {
-            // Ocultar o mostrar el footer según si hay texto en los campos de texto
-            const isInputEmpty =
-              !usernameInput.value.trim() && !passwordInput.value.trim();
-            footer.classList.toggle("hide-footer", !isInputEmpty);
-          }
-  
-          // Función para manejar el evento cuando el usuario deja de escribir
-          function handleInputBlur() {
-            // Mostrar el footer cuando el teclado está inactivo
-            footer.classList.remove("hide-footer");
-          }
-  
-          // Agregar escuchadores de eventos de entrada y salida a los campos de texto
-          usernameInput.addEventListener("input", handleInput);
-          passwordInput.addEventListener("input", handleInput);
-  
-          // Agregar escuchadores de eventos de salida para mostrar el footer
-          usernameInput.addEventListener("blur", handleInputBlur);
-          passwordInput.addEventListener("blur", handleInputBlur);
+            const emailInput = document.getElementById("email");
+            const usernameInput = document.getElementById("username");
+            const footer = document.querySelector("footer");
+    
+            // Función para manejar el evento de enfoque (cuando se selecciona un campo de texto)
+            function handleInputFocus() {
+                // Verificar si es un dispositivo móvil y el campo es usuario o email antes de ocultar el footer
+                if (isMobileDevice() && (document.activeElement === usernameInput || document.activeElement === emailInput)) {
+                    footer.classList.add("hide-footer");
+                }
+            }
+    
+            // Función para manejar el evento de desenfoque (cuando se deja de seleccionar el campo de texto)
+            function handleInputBlur() {
+                // Verificar si es un dispositivo móvil y el campo es usuario o email antes de mostrar el footer
+                if (isMobileDevice() && (document.activeElement === usernameInput || document.activeElement === emailInput)) {
+                    footer.classList.remove("hide-footer");
+                }
+            }
+    
+            // Función para verificar si es un dispositivo móvil
+            function isMobileDevice() {
+                return window.innerWidth <= 768; // Puedes ajustar este umbral según tus necesidades
+            }
+    
+            // Agregar escuchadores de eventos de enfoque y desenfoque a los campos de texto
+            usernameInput.addEventListener("focus", handleInputFocus);
+            emailInput.addEventListener("focus", handleInputFocus);
+    
+            usernameInput.addEventListener("blur", handleInputBlur);
+            emailInput.addEventListener("blur", handleInputBlur);
+    
+            // Puedes ajustar este código según tus necesidades específicas
         });
-      </script>
+    </script>
+    
 
     <style>
         .body {
