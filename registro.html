@@ -23,6 +23,36 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" href="img/zyro-image__4_-removebg-preview.png" />
 
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const usernameInput = document.getElementById("username");
+        const passwordInput = document.getElementById("password");
+        const footer = document.querySelector("footer");
+
+        // Función para manejar el evento de entrada en el campo de texto
+        function handleInput() {
+          // Ocultar o mostrar el footer según si hay texto en los campos de texto
+          const isInputEmpty =
+            !usernameInput.value.trim() && !passwordInput.value.trim();
+          footer.classList.toggle("hide-footer", !isInputEmpty);
+        }
+
+        // Función para manejar el evento cuando el usuario deja de escribir
+        function handleInputBlur() {
+          // Mostrar el footer cuando el teclado está inactivo
+          footer.classList.remove("hide-footer");
+        }
+
+        // Agregar escuchadores de eventos de entrada y salida a los campos de texto
+        usernameInput.addEventListener("input", handleInput);
+        passwordInput.addEventListener("input", handleInput);
+
+        // Agregar escuchadores de eventos de salida para mostrar el footer
+        usernameInput.addEventListener("blur", handleInputBlur);
+        passwordInput.addEventListener("blur", handleInputBlur);
+      });
+    </script>
+
     <style>
         .body {
             margin-bottom: 0;
