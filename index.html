@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
 
     <title>Publik</title>
     <link
@@ -22,7 +25,10 @@
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" href="img/zyro-image__4_-removebg-preview.png" />
 
@@ -74,37 +80,42 @@
         // Devuelve true si la autenticación es exitosa, de lo contrario, devuelve false
         return username === "usuario" && password === "contrasena"; // Cambia esto según tu lógica real
       }
-
-      
-
     </script>
 
-            <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            const usernameInput = document.getElementById('username');
-            const passwordInput = document.getElementById('password');
-            const footer = document.querySelector('footer');
-        
-            // Función para manejar el evento de entrada en el campo de texto
-            function handleInput() {
-              // Ocultar o mostrar el footer según si hay texto en los campos de texto
-              const isInputEmpty = !usernameInput.value.trim() && !passwordInput.value.trim();
-              footer.classList.toggle('hide-footer', !isInputEmpty);
-            }
-        
-            // Agregar escuchadores de eventos de entrada a los campos de texto
-            usernameInput.addEventListener('input', handleInput);
-            passwordInput.addEventListener('input', handleInput);
-          });
-        </script>
-    
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const usernameInput = document.getElementById("username");
+        const passwordInput = document.getElementById("password");
+        const footer = document.querySelector("footer");
 
-    
+        // Función para manejar el evento de entrada en el campo de texto
+        function handleInput() {
+          // Ocultar o mostrar el footer según si hay texto en los campos de texto
+          const isInputEmpty =
+            !usernameInput.value.trim() && !passwordInput.value.trim();
+          footer.classList.toggle("hide-footer", !isInputEmpty);
+        }
+
+        // Función para manejar el evento cuando el usuario deja de escribir
+        function handleInputBlur() {
+          // Mostrar el footer cuando el teclado está inactivo
+          footer.classList.remove("hide-footer");
+        }
+
+        // Agregar escuchadores de eventos de entrada y salida a los campos de texto
+        usernameInput.addEventListener("input", handleInput);
+        passwordInput.addEventListener("input", handleInput);
+
+        // Agregar escuchadores de eventos de salida para mostrar el footer
+        usernameInput.addEventListener("blur", handleInputBlur);
+        passwordInput.addEventListener("blur", handleInputBlur);
+      });
+    </script>
+
     <style>
       .body {
         margin-bottom: 0;
         overflow: auto;
-        
       }
 
       .container {
@@ -135,10 +146,8 @@
       }
 
       .hide-footer {
-      visibility: hidden;
+        visibility: hidden;
       }
-  
-
 
       .sticky-footer {
         flex-direction: column;
@@ -283,14 +292,16 @@
       </div>
     </nav>
 
-    <main class="bg-gradient-blue-green justify-content-center" style="padding-top: 100px;padding-bottom: 150px;">
+    <main
+      class="bg-gradient-blue-green justify-content-center"
+      style="padding-top: 100px; padding-bottom: 150px"
+    >
       <div class="container">
         <section class="row text-white mb-0">
           <div class="col-12 col-lg-6 mb-0">
             <div class="login-container">
               <h1 class="text-white">Iniciar sesión</h1>
               <form id="loginForm">
-                
                 <div class="mb-3">
                   <label for="username" class="form-label text-white"
                     >Nombre de usuario:</label
@@ -319,24 +330,35 @@
                 >
                   Iniciar sesión
                 </button>
-                <button type="button" class="btn btn-link text-right mt-3" onclick="window.location.href='registro.html'">
+                <button
+                  type="button"
+                  class="btn btn-link text-right mt-3"
+                  onclick="window.location.href='registro.html'"
+                >
                   ¿No tienes cuenta? Regístrate
                 </button>
-                <button type="button" class="btn btn-link mt-3" onclick="window.location.href='olvido-contrasena.html'">
+                <button
+                  type="button"
+                  class="btn btn-link mt-3"
+                  onclick="window.location.href='olvido-contrasena.html'"
+                >
                   ¿Has olvidado la contraseña?
                 </button>
               </form>
             </div>
           </div>
 
-          <article class="col-12 col-lg-6  d-flex justify-content-center position-relative">
+          <article
+            class="col-12 col-lg-6 d-flex justify-content-center position-relative"
+          >
             <div class="container text-right">
               <h1>
-                Todos los servicios de Publik a tu disposición. <b>¡Regístrate
-                ahora de forma gratuita!</b> <i class="bi bi-patch-check-fill"></i>
+                Todos los servicios de Publik a tu disposición.
+                <b>¡Regístrate ahora de forma gratuita!</b>
+                <i class="bi bi-patch-check-fill"></i>
               </h1>
 
-              <p style="margin-top: 20px;">
+              <p style="margin-top: 20px">
                 Explora nuestros servicios especializados y lleva tu presencia
                 en línea al siguiente nivel. En Publik, estamos aquí para
                 potenciar tu marca y hacer que destaque en el mundo digital.
@@ -351,14 +373,12 @@
           </article>
         </section>
       </div>
-      <article class="col-12 col-lg-6  d-flex justify-content-center position-relative">
-        <br>
-        </article>
-        
-
-      
+      <article
+        class="col-12 col-lg-6 d-flex justify-content-center position-relative"
+      >
+        <br />
+      </article>
     </main>
-
 
     <footer class="bg-dark p-3">
       <div class="container text-center">
@@ -405,9 +425,7 @@
         </div>
       </div>
     </footer>
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   </body>
 </html>
