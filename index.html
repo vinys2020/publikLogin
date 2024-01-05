@@ -332,32 +332,24 @@
         </article>
 
         <script>
-          // Detectar cambios en la altura de la ventana (puede indicar que el teclado se ha mostrado/ocultado)
-      
-          // Detectar cuando se selecciona el campo de texto
-          const usernameInput = document.getElementById('username');
-          const passwordInput = document.getElementById('password');
-          const footer = document.querySelector('footer');
-      
-          usernameInput.addEventListener('focus', handleInputFocus);
-          passwordInput.addEventListener('focus', handleInputFocus);
-      
-          // Función para manejar el evento de enfoque en el campo de texto
-          function handleInputFocus() {
-            // Ocultar el footer cuando el teclado está activo
-            footer.classList.add('hide-footer');
-          }
-      
-          // Detectar cuando se sale del campo de texto
-          usernameInput.addEventListener('blur', handleInputBlur);
-          passwordInput.addEventListener('blur', handleInputBlur);
-      
-          // Función para manejar el evento de salida del campo de texto
-          function handleInputBlur() {
-            // Mostrar el footer cuando el teclado está inactivo
-            footer.classList.remove('hide-footer');
-          }
+          document.addEventListener("DOMContentLoaded", function () {
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const footer = document.querySelector('footer');
+        
+            // Función para manejar el evento de entrada en el campo de texto
+            function handleInput() {
+              // Ocultar o mostrar el footer según si hay texto en los campos de texto
+              const isInputEmpty = !usernameInput.value.trim() && !passwordInput.value.trim();
+              footer.classList.toggle('hide-footer', !isInputEmpty);
+            }
+        
+            // Agregar escuchadores de eventos de entrada a los campos de texto
+            usernameInput.addEventListener('input', handleInput);
+            passwordInput.addEventListener('input', handleInput);
+          });
         </script>
+        
 
       
     </main>
