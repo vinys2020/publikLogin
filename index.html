@@ -86,31 +86,29 @@
       document.addEventListener("DOMContentLoaded", function () {
         const usernameInput = document.getElementById("username");
         const passwordInput = document.getElementById("password");
+        const loginForm = document.getElementById("loginForm");
         const footer = document.querySelector("footer");
 
-        // Función para manejar el evento de enfoque (cuando se selecciona un campo)
-        function handleInputFocus() {
-          // Ocultar el footer cuando se selecciona un campo
+        // Función para manejar el evento de enfoque (cuando se selecciona el formulario)
+        function handleFormFocus() {
+          // Ocultar el footer cuando se selecciona el formulario
           footer.classList.add("hide-footer");
         }
 
-        // Función para manejar el evento de desenfoque (cuando se deselecciona un campo)
-        function handleInputBlur() {
-          // Mostrar el footer cuando ambos campos están vacíos
-          const isInputEmpty =
-            !usernameInput.value.trim() && !passwordInput.value.trim();
-          if (isInputEmpty) {
-            footer.classList.remove("hide-footer");
-          } else {
-            footer.classList.add("hide-footer");
-          }
+        // Función para manejar el evento de desenfoque (cuando se sale del formulario)
+        function handleFormBlur() {
+          // Mostrar el footer cuando se sale del formulario
+          footer.classList.remove("hide-footer");
         }
 
-        // Agregar escuchadores de eventos de enfoque y desenfoque a los campos de texto
-        usernameInput.addEventListener("focus", handleInputFocus);
-        passwordInput.addEventListener("focus", handleInputFocus);
-        usernameInput.addEventListener("blur", handleInputBlur);
-        passwordInput.addEventListener("blur", handleInputBlur);
+        // Agregar escuchadores de eventos de enfoque y desenfoque al formulario
+        loginForm.addEventListener("focus", handleFormFocus);
+        loginForm.addEventListener("blur", handleFormBlur);
+
+        // Puedes agregar eventos de enfoque/desenfoque a los campos de texto si lo deseas
+        // ...
+
+        // Puedes ajustar este código según tus necesidades específicas
       });
     </script>
 
