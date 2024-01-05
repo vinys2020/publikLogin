@@ -28,33 +28,46 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const usernameInput = document.getElementById("username");
-        const passwordInput = document.getElementById("password");
-        const footer = document.querySelector("footer");
+          const fullNameInput = document.getElementById("fullName");
+          const emailInput = document.getElementById("email");
+          const usernameInput = document.getElementById("username");
+          const passwordInput = document.getElementById("password");
+          const confirmPasswordInput = document.getElementById("confirmPassword");
+          const footer = document.querySelector("footer");
 
-        // Función para manejar el evento de entrada en el campo de texto
-        function handleInput() {
-          // Ocultar o mostrar el footer según si hay texto en los campos de texto
-          const isInputEmpty =
-            !usernameInput.value.trim() && !passwordInput.value.trim();
-          footer.classList.toggle("hide-footer", !isInputEmpty);
-        }
+          // Función para manejar el evento de entrada en los campos de texto
+          function handleInput() {
+              // Ocultar o mostrar el footer según si hay texto en los campos de texto
+              const isInputEmpty =
+                  !fullNameInput.value.trim() &&
+                  !emailInput.value.trim() &&
+                  !usernameInput.value.trim() &&
+                  !passwordInput.value.trim() &&
+                  !confirmPasswordInput.value.trim();
+              footer.classList.toggle("hide-footer", !isInputEmpty);
+          }
 
-        // Función para manejar el evento cuando el usuario deja de escribir
-        function handleInputBlur() {
-          // Mostrar el footer cuando el teclado está inactivo
-          footer.classList.remove("hide-footer");
-        }
+          // Función para manejar el evento cuando el usuario deja de escribir
+          function handleInputBlur() {
+              // Mostrar el footer cuando el teclado está inactivo
+              footer.classList.remove("hide-footer");
+          }
 
-        // Agregar escuchadores de eventos de entrada y salida a los campos de texto
-        usernameInput.addEventListener("input", handleInput);
-        passwordInput.addEventListener("input", handleInput);
+          // Agregar escuchadores de eventos de entrada y salida a los campos de texto
+          fullNameInput.addEventListener("input", handleInput);
+          emailInput.addEventListener("input", handleInput);
+          usernameInput.addEventListener("input", handleInput);
+          passwordInput.addEventListener("input", handleInput);
+          confirmPasswordInput.addEventListener("input", handleInput);
 
-        // Agregar escuchadores de eventos de salida para mostrar el footer
-        usernameInput.addEventListener("blur", handleInputBlur);
-        passwordInput.addEventListener("blur", handleInputBlur);
+          // Agregar escuchadores de eventos de salida para mostrar el footer
+          fullNameInput.addEventListener("blur", handleInputBlur);
+          emailInput.addEventListener("blur", handleInputBlur);
+          usernameInput.addEventListener("blur", handleInputBlur);
+          passwordInput.addEventListener("blur", handleInputBlur);
+          confirmPasswordInput.addEventListener("blur", handleInputBlur);
       });
-    </script>
+  </script>
 
     <style>
         .body {
