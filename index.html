@@ -101,6 +101,8 @@
             !usernameInput.value.trim() && !passwordInput.value.trim();
           if (isInputEmpty) {
             footer.classList.remove("hide-footer");
+          } else {
+            footer.classList.add("hide-footer");
           }
         }
 
