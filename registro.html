@@ -53,6 +53,18 @@
               footer.classList.remove("hide-footer");
           }
 
+          // Función para manejar el evento cuando el teclado virtual se muestra
+          function handleKeyboardShow() {
+              // Ocultar el footer cuando el teclado virtual está activo
+              footer.classList.add("hide-footer");
+          }
+
+          // Función para manejar el evento cuando el teclado virtual se oculta
+          function handleKeyboardHide() {
+              // Mostrar el footer cuando el teclado virtual se oculta
+              footer.classList.remove("hide-footer");
+          }
+
           // Agregar escuchadores de eventos de entrada y salida a los campos de texto
           fullNameInput.addEventListener("input", handleInput);
           emailInput.addEventListener("input", handleInput);
@@ -66,6 +78,19 @@
           usernameInput.addEventListener("blur", handleInputBlur);
           passwordInput.addEventListener("blur", handleInputBlur);
           confirmPasswordInput.addEventListener("blur", handleInputBlur);
+
+          // Agregar escuchadores de eventos de entrada y salida para el teclado virtual
+          fullNameInput.addEventListener("focusin", handleKeyboardShow);
+          emailInput.addEventListener("focusin", handleKeyboardShow);
+          usernameInput.addEventListener("focusin", handleKeyboardShow);
+          passwordInput.addEventListener("focusin", handleKeyboardShow);
+          confirmPasswordInput.addEventListener("focusin", handleKeyboardShow);
+
+          fullNameInput.addEventListener("focusout", handleKeyboardHide);
+          emailInput.addEventListener("focusout", handleKeyboardHide);
+          usernameInput.addEventListener("focusout", handleKeyboardHide);
+          passwordInput.addEventListener("focusout", handleKeyboardHide);
+          confirmPasswordInput.addEventListener("focusout", handleKeyboardHide);
       });
   </script>
 
