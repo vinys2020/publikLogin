@@ -75,7 +75,31 @@
         return username === "usuario" && password === "contrasena"; // Cambia esto según tu lógica real
       }
 
+      
+
     </script>
+
+            <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const footer = document.querySelector('footer');
+        
+            // Función para manejar el evento de entrada en el campo de texto
+            function handleInput() {
+              // Ocultar o mostrar el footer según si hay texto en los campos de texto
+              const isInputEmpty = !usernameInput.value.trim() && !passwordInput.value.trim();
+              footer.classList.toggle('hide-footer', !isInputEmpty);
+            }
+        
+            // Agregar escuchadores de eventos de entrada a los campos de texto
+            usernameInput.addEventListener('input', handleInput);
+            passwordInput.addEventListener('input', handleInput);
+          });
+        </script>
+    
+
+    
     <style>
       .body {
         margin-bottom: 0;
@@ -330,25 +354,6 @@
       <article class="col-12 col-lg-6  d-flex justify-content-center position-relative">
         <br>
         </article>
-
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            const usernameInput = document.getElementById('username');
-            const passwordInput = document.getElementById('password');
-            const footer = document.querySelector('footer');
-        
-            // Función para manejar el evento de entrada en el campo de texto
-            function handleInput() {
-              // Ocultar o mostrar el footer según si hay texto en los campos de texto
-              const isInputEmpty = !usernameInput.value.trim() && !passwordInput.value.trim();
-              footer.classList.toggle('hide-footer', !isInputEmpty);
-            }
-        
-            // Agregar escuchadores de eventos de entrada a los campos de texto
-            usernameInput.addEventListener('input', handleInput);
-            passwordInput.addEventListener('input', handleInput);
-          });
-        </script>
         
 
       
@@ -362,7 +367,7 @@
             ><i class="bi bi-facebook fs-3"></i
           ></a>
           <a href="https://twitter.com" target="_blank"
-            ><i class="bi bi-twitter fs-3"></i
+            ><i class="bi bi-twitter fs-3"></i>
           </a>
           <a href="https://github.com" target="_blank"
             ><i class="bi bi-github fs-3"></i
