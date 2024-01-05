@@ -82,33 +82,43 @@
       }
     </script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const usernameInput = document.getElementById("username");
-        const passwordInput = document.getElementById("password");
-        const footer = document.querySelector("footer");
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const footer = document.querySelector("footer");
 
-        // Función para manejar el evento de enfoque (cuando se selecciona un campo de texto)
-        function handleInputFocus() {
-          // Ocultar el footer cuando se selecciona un campo de texto
-          footer.classList.add("hide-footer");
-        }
+    // Función para manejar el evento de enfoque (cuando se selecciona un campo de texto)
+    function handleInputFocus() {
+      // Verificar si es un dispositivo móvil antes de ocultar el footer
+      if (isMobileDevice()) {
+        footer.classList.add("hide-footer");
+      }
+    }
 
-        // Función para manejar el evento de desenfoque (cuando se deja de seleccionar el campo de texto)
-        function handleInputBlur() {
-          // Mostrar el footer cuando se deja de seleccionar el campo de texto
-          footer.classList.remove("hide-footer");
-        }
+    // Función para manejar el evento de desenfoque (cuando se deja de seleccionar el campo de texto)
+    function handleInputBlur() {
+      // Verificar si es un dispositivo móvil antes de mostrar el footer
+      if (isMobileDevice()) {
+        footer.classList.remove("hide-footer");
+      }
+    }
 
-        // Agregar escuchadores de eventos de enfoque y desenfoque a los campos de texto
-        usernameInput.addEventListener("focus", handleInputFocus);
-        passwordInput.addEventListener("focus", handleInputFocus);
-        usernameInput.addEventListener("blur", handleInputBlur);
-        passwordInput.addEventListener("blur", handleInputBlur);
+    // Función para verificar si es un dispositivo móvil
+    function isMobileDevice() {
+      return window.innerWidth <= 768; // Puedes ajustar este umbral según tus necesidades
+    }
 
-        // Puedes ajustar este código según tus necesidades específicas
-      });
-    </script>
+    // Agregar escuchadores de eventos de enfoque y desenfoque a los campos de texto
+    usernameInput.addEventListener("focus", handleInputFocus);
+    passwordInput.addEventListener("focus", handleInputFocus);
+    usernameInput.addEventListener("blur", handleInputBlur);
+    passwordInput.addEventListener("blur", handleInputBlur);
+
+    // Puedes ajustar este código según tus necesidades específicas
+  });
+</script>
+
 
     <style>
       .body {
