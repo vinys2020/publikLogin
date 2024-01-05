@@ -26,43 +26,45 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" href="img/zyro-image__4_-removebg-preview.png" />
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const emailInput = document.getElementById("email");
-            const usernameInput = document.getElementById("username");
-            const footer = document.querySelector("footer");
-    
-            // Función para manejar el evento de enfoque (cuando se selecciona un campo de texto)
-            function handleInputFocus() {
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const emailInput = document.getElementById("email");
+        const usernameInput = document.getElementById("username");
+        const footer = document.querySelector("footer");
+  
+      // Función para manejar el evento de enfoque (cuando se selecciona un campo de texto)
+      function handleInputFocus() {
                 // Verificar si es un dispositivo móvil y el campo es usuario o email antes de ocultar el footer
                 if (isMobileDevice() && (document.activeElement === usernameInput || document.activeElement === emailInput)) {
                     footer.classList.add("hide-footer");
                 }
             }
-    
-            // Función para manejar el evento de desenfoque (cuando se deja de seleccionar el campo de texto)
-            function handleInputBlur() {
-                // Verificar si es un dispositivo móvil y el campo es usuario o email antes de mostrar el footer
-                if (isMobileDevice() && (document.activeElement === usernameInput || document.activeElement === emailInput)) {
-                    footer.classList.remove("hide-footer");
-                }
-            }
-    
-            // Función para verificar si es un dispositivo móvil
-            function isMobileDevice() {
-                return window.innerWidth <= 768; // Puedes ajustar este umbral según tus necesidades
-            }
-    
-            // Agregar escuchadores de eventos de enfoque y desenfoque a los campos de texto
-            usernameInput.addEventListener("focus", handleInputFocus);
+  
+      // Función para manejar el evento de desenfoque (cuando se deja de seleccionar el campo de texto)
+      function handleInputBlur() {
+        // Verificar si es un dispositivo móvil antes de mostrar el footer
+        if (isMobileDevice()) {
+          footer.classList.remove("hide-footer");
+        }
+      }
+  
+      // Función para verificar si es un dispositivo móvil
+      function isMobileDevice() {
+        return window.innerWidth <= 768; // Puedes ajustar este umbral según tus necesidades
+      }
+  
+      // Agregar escuchadores de eventos de enfoque y desenfoque a los campos de texto
+      usernameInput.addEventListener("focus", handleInputFocus);
             emailInput.addEventListener("focus", handleInputFocus);
     
             usernameInput.addEventListener("blur", handleInputBlur);
             emailInput.addEventListener("blur", handleInputBlur);
-    
-            // Puedes ajustar este código según tus necesidades específicas
-        });
-    </script>
+  
+      // Puedes ajustar este código según tus necesidades específicas
+    });
+  </script>
     
 
     <style>
